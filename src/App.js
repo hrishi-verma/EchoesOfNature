@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import ExtinctSpeciesMap from './ExtinctSpeciesMap';
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
         >
           Learn React
         </a>
+        <div>
+          <ExtinctSpeciesMap />
+        </div>
       </header>
     </div>
   );
