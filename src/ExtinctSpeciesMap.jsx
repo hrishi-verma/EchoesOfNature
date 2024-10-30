@@ -5,7 +5,7 @@ import * as topojson from 'topojson';
 // import { countries } from './countries';
 import { countries } from './datajson';
 import { code } from './Code_ISO';
-import { listOfCountries } from './listOfCountries';
+// import { listOfCountries } from './listOfCountries';
 Chart.register(...registerables, ChoroplethController, GeoFeature, ProjectionScale, ColorScale); // Register ColorScale
 
 const ExtinctSpeciesMap = () => {
@@ -85,6 +85,7 @@ const ExtinctSpeciesMap = () => {
 
   return (
     <div>
+      <h1>List of threatened species per countries</h1>
       <canvas ref={chartRef} width="800" height="600"></canvas>
     </div>
   );
