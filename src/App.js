@@ -1,9 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
 import ExtinctSpeciesMap from './ExtinctSpeciesMap';
+import Navbar from './Navbar';
 
 function App() {
   return (
+    <>
+    
+
+    <div>
+        return <Navbar />
+    </div>
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -23,6 +30,7 @@ function App() {
         </div>
       </header>
     </div>
+    </>
   );
 }
 

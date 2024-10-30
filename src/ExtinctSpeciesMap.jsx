@@ -5,7 +5,7 @@ import * as topojson from 'topojson';
 // import { countries } from './countries';
 import { countries } from './datajson';
 import { code } from './Code_ISO';
-import { listOfCountries } from './listOfCountries';
+// import { listOfCountries } from './listOfCountries';
 Chart.register(...registerables, ChoroplethController, GeoFeature, ProjectionScale, ColorScale); // Register ColorScale
 
 const ExtinctSpeciesMap = () => {
