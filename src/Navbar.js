@@ -4,10 +4,10 @@ export default function Navbar() {
         <a href="/" className="site-title">Extinct Animal Tracker</a>
         <ul className="active">
             <li>
-                <a href="/pricing">Pricing</a>
+                <a href="/Pricing">Pricing</a>
             </li>
             <li>
-                <a href="/about">About</a>
+                <a href="/About">About</a>
             </li>
 
             
