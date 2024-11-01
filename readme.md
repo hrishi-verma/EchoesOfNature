@@ -73,9 +73,9 @@ If you would like to contribute to the development of this project, please follo
 2. Create a new branch for your feature or bugfix.
 3. Submit a pull request with a clear explanation of your changes.
 
-## License
+## Data Files
 
-This project is licensed under the MIT License – see the [LICENSE](./LICENSE) file for details.
+If you want to view the data have a look at a file by the name datajson.js in src folder.
 
 ## Acknowledgements
 

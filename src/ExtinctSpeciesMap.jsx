@@ -85,6 +85,7 @@ const ExtinctSpeciesMap = () => {
 
   return (
     <div>
+      <h1>List of threatened species per countries</h1>
       <canvas ref={chartRef} width="800" height="600"></canvas>
     </div>
   );
