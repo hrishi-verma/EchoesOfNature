@@ -5,7 +5,7 @@ import Navbar from './Navbar';
 import Pricing from './pages/pricing.js'
 import Home from './pages/home.js'
 import About from './pages/about.js'
-
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 function App() {
 
@@ -22,20 +22,19 @@ function App() {
       break
 
   }
-  
- 
+
+
   return (
-    <><Navbar />
-    
-    
-    <div className="App">
-      <header className="App-header">
-        <div>
-          <ExtinctSpeciesMap />
+    <Router>
+      <><Navbar />
+        <div >
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
         </div>
-      </header>
-    </div>
-    </>
+      </>
+    </Router>
   );
 }
 

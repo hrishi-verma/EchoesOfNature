@@ -1,18 +1,16 @@
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 export default function Navbar() {
-    return ( 
+    return (
         <nav className="nav">
-        <a href="/" className="site-title">Extinct Animal Tracker</a>
-        <ul className="active">
-            <li>
-                <a href="/Pricing">Pricing</a>
-            </li>
-            <li>
-                <a href="/About">About</a>
-            </li>
-
-            
-        </ul>
-
-    </nav>
+            <a href="/" className="site-title">Extinct Animal Tracker</a>
+            <ul className="active">
+                <li>
+                    <Link to="/" >Home Page</Link>
+                </li>
+                <li>
+                    <Link to="/about" >About</Link>
+                </li>
+            </ul>
+        </nav>
     );
 }
