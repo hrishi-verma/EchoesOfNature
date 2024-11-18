@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.32ca99d3.css",
-    "main.js": "/static/js/main.33954c97.js",
-    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/index.html",
-    "main.32ca99d3.css.map": "/static/css/main.32ca99d3.css.map",
-    "main.33954c97.js.map": "/static/js/main.33954c97.js.map"
+    "main.css": "/group-project-extinct-animal-tracker/home/static/css/main.32ca99d3.css",
+    "main.js": "/group-project-extinct-animal-tracker/home/static/js/main.d180f7b5.js",
+    "static/media/logo.svg": "/group-project-extinct-animal-tracker/home/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/group-project-extinct-animal-tracker/home/index.html",
+    "main.32ca99d3.css.map": "/group-project-extinct-animal-tracker/home/static/css/main.32ca99d3.css.map",
+    "main.d180f7b5.js.map": "/group-project-extinct-animal-tracker/home/static/js/main.d180f7b5.js.map"
   },
   "entrypoints": [
     "static/css/main.32ca99d3.css",
-    "static/js/main.33954c97.js"
+    "static/js/main.d180f7b5.js"
   ]
 }
