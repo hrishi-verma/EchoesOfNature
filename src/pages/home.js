@@ -1,5 +1,6 @@
 import React from 'react';
 import ExtinctSpeciesMap from '../ExtinctSpeciesMap';
+import ExtinctSpeciesMapD3 from '../ExtinctSpeciesMapD3';
 
 const Home = () => {
     return (
@@ -15,7 +16,8 @@ const Home = () => {
                         <p>
                             Use the navigation bar to explore the map, learn more about the project, or check out the interactions.
                         </p>
-                        <ExtinctSpeciesMap />
+                        {/* <ExtinctSpeciesMap /> */}
+                        <ExtinctSpeciesMapD3 />
                     </div>
                 </header>
             </div>

@@ -10,7 +10,12 @@ body{
     font-size: 2rem;
 
 }
-
+.country {
+    z-index: 999;
+}
+.graticuleClass {
+    z-index: 0;
+}
 .nav {
     background-color: #333;
     color: white;

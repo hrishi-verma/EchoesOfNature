@@ -1,5 +1,5 @@
 {
-  "homepage": "http://hrishi-verma.github.io/group-project-extinct-animal-tracker",
+  "homepage": "http://hrishi-verma.github.io/",
   "name": "tracker-app",
   "version": "0.1.0",
   "private": true,
@@ -12,6 +12,8 @@
     "@testing-library/user-event": "^13.5.0",
     "chart.js": "^4.4.5",
     "chartjs-chart-geo": "^4.3.3",
+    "d3": "^7.9.0",
+    "papaparse": "^5.4.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.28.0",

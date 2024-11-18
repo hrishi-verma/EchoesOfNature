@@ -1961,7 +1961,7 @@ export const countries = [
     "Total": 405
   },
   {
-    "Name": "Bolivia, Plurinational States of",
+    "Name": "Bolivia, Plurinational State of",
     "Mammals": 24,
     "Birds": 45,
     "Reptiles*": 14,
