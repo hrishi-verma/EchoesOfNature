@@ -2781,7 +2781,7 @@ export const countries = [
     "Fishes*": 115,
     "Molluscs*": 35,
     "Other Inverts*": 252,
-    "Plants*": "2,980",
+    "Plants*": 2980,
     "Fungi*": 1,
     "Chromists*": 0,
     "Total": 3839
