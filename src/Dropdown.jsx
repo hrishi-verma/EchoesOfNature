@@ -5,14 +5,14 @@ const Dropdown = ({ selectedCategory, setSelectedCategory }) => {
         'All Species',
         'Mammals',
         'Birds',
-        'Reptiles*',
+        'Reptiles',
         'Amphibians',
-        'Fishes*',
-        'Molluscs*',
-        'Other Inverts*',
-        'Plants*',
-        'Fungi*',
-        'Chromists*',
+        'Fishes',
+        'Molluscs',
+        'Other Inverts',
+        'Plants',
+        'Fungi',
+        'Chromists',
     ];
 
     // const [selectedCategory, setSelectedCategory] = useState('All Species');

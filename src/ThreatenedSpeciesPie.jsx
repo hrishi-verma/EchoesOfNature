@@ -11,14 +11,14 @@ const PieChart = ({ data, selected, label }) => {
         const categories = [
             'Mammals',
             'Birds',
-            'Reptiles*',
+            'Reptiles',
             'Amphibians',
-            'Fishes*',
-            'Molluscs*',
-            'Other Inverts*',
-            'Plants*',
-            'Fungi*',
-            'Chromists*',
+            'Fishes',
+            'Molluscs',
+            'Other Inverts',
+            'Plants',
+            'Fungi',
+            'Chromists',
         ];
 
 

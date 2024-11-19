@@ -75,7 +75,7 @@ const LineGraph = ({ selectedCountries }) => {
                         .attr('class', 'line')
                         .attr('d', line)
                         .style('stroke', d3.schemeCategory10[index % 10]) 
-                        .style('stroke-width', 2);
+                        .style('stroke-width', 1.5);
                 });
 
                 

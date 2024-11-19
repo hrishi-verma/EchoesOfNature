@@ -63,6 +63,18 @@ const ExtinctSpeciesMapD3 = () => {
 
         // Clear previous map elements
         svg.selectAll('path.country').remove();
+        svg.selectAll('path.graticule').remove();
+
+        const graticule = d3.geoGraticule()
+          .extent([[-180.1, -90.1], [180.1, 90.1]]);
+        svg.append('path')
+          .datum(graticule)
+          .attr('class', 'graticule')
+          .attr('d', path)
+          .attr('fill', 'none')
+          .attr('stroke', '#ccc')
+          .attr('stroke-width', 0.8)
+          .attr('stroke-dasharray', '2,2'); // Dashed lines for better aesthetics
 
         // Draw updated map
         svg.selectAll('path.country')
@@ -80,16 +92,16 @@ const ExtinctSpeciesMapD3 = () => {
           .on('mouseover', function (event, d) {
             const countryName = d.properties.name;
             const speciesCount = countryText[d.id] || '0';
-            d3.select('#tooltip')
+            d3.select('#map-tooltip')
               .style('opacity', 1)
               .html(`${countryName}: ${speciesCount} species`);
           })
           .on('mousemove', (event) => {
-            d3.select('#tooltip')
+            d3.select('#map-tooltip')
               .style('left', (event.pageX + 5) + 'px')
               .style('top', (event.pageY - 28) + 'px');
           })
-          .on('mouseout', () => d3.select('#tooltip').style('opacity', 0))
+          .on('mouseout', () => d3.select('#map-tooltip').style('opacity', 0))
           .on('click', function (event, d) {
             const countryID = d.id;
             const countryName = getCountryNameByCode(countryID);
@@ -142,7 +154,7 @@ const ExtinctSpeciesMapD3 = () => {
       <LineGraph selectedCountries={selectedCountries} />
 
       <div
-        id="tooltip"
+        id="map-tooltip"
         style={{
           position: 'absolute',
           textAlign: 'center',
