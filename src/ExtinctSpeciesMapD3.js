@@ -84,6 +84,7 @@ const ExtinctSpeciesMapD3 = () => {
           .attr('class', 'country')
           .attr('d', path)
           .attr('fill', d => {
+            console.log(countryText, d.id, d, "--------")
             const value = countryText[d.id] || 0;
             return colorScale(value);
           })

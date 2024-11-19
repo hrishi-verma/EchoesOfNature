@@ -780,7 +780,7 @@ export const rate = [
     "2023": 0.852,
     "2024": 0.8516,
     "GeoAreaCode": 68,
-    "GeoAreaName": "Bolivia (Plurinational State of)"
+    "GeoAreaName": "Bolivia"
   },
   {
     "2000": 0.91388,
@@ -7305,7 +7305,7 @@ export const rate = [
     "2023": 0.97358,
     "2024": 0.97363,
     "GeoAreaCode": 826,
-    "GeoAreaName": "United Kingdom of Great Britain and Northern Ireland"
+    "GeoAreaName": "United Kingdom"
   },
   {
     "2000": 0.76734,

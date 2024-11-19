@@ -26,7 +26,7 @@ export const IsoCode = [
   { name: "Bermuda", "alpha-3": "BMU", "country-code": "060" },
   { name: "Bhutan", "alpha-3": "BTN", "country-code": "064" },
   {
-    name: "Bolivia, Plurinational State of",
+    name: "Bolivia",
     "alpha-3": "BOL",
     "country-code": "068",
   },
@@ -314,7 +314,7 @@ export const IsoCode = [
   { name: "Ukraine", "alpha-3": "UKR", "country-code": "804" },
   { name: "United Arab Emirates", "alpha-3": "ARE", "country-code": "784" },
   {
-    name: "United Kingdom of Great Britain and Northern Ireland",
+    name: "United Kingdom",
     "alpha-3": "GBR",
     "country-code": "826",
   },
