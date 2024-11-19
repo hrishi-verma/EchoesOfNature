@@ -5,7 +5,9 @@ import Navbar from './Navbar';
 import Pricing from './pages/pricing.js'
 import Home from './pages/home.js'
 import About from './pages/about.js'
+import Footer from './Footer.js';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+
 
 function App() {
 
@@ -27,13 +29,16 @@ function App() {
   return (
     <Router>
       <><Navbar />
-        <div >
+      
+        <div>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
           </Routes>
+          <Footer />
         </div>
       </>
+      
     </Router>
   );
 }

@@ -124,7 +124,7 @@ const ExtinctSpeciesMapD3 = () => {
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
         />
-        <button
+        <button 
           onClick={clearSelections}
           style={{
             marginLeft: '10px',
@@ -133,6 +133,7 @@ const ExtinctSpeciesMapD3 = () => {
             color: 'white',
             border: 'none',
             cursor: 'pointer',
+            
           }}
         >
           Clear All Selections

@@ -1,0 +1,110 @@
+/* footer.css */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensure the viewport covers the full height */
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%; /* Ensure the content stretches to fill the height */
+}
+
+main {
+  flex: 1; /* Pushes the footer to the bottom */
+}
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 20px;
+  margin-top: auto; /* Ensures the footer is at the bottom of the flex container */
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer .text {
+  margin: 0;
+  padding: 10px 0;
+}
+
+.footer .social-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+.footer .social-item {
+  margin: 0 10px;
+}
+
+.footer .link {
+  color: #1e90ff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+
+/* Style for the Scroll Up button */
+.scroll-up-container {
+    display: flex;
+    justify-content: center; /* Centers the button horizontally */
+    margin-top: 10px; /* Space between copyright text and button */
+  }
+  
+  .scroll-up-btn {
+    padding: 10px 20px;
+    background-color: #007bff; /* Initial background color */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+  }
+  
+  /* Hover effect */
+  .scroll-up-btn:hover {
+    background-color: red; /* Darker shade when hovered */
+    transform: translateY(-3px); /* Slight lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow on hover */
+  }
+  
+  /* Footer Styling */
+  .footer {
+    padding: 20px 0;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+  }
+  
+  /* Social links styling
+  .social-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+  }
+  
+  .social-item {
+    display: inline;
+    margin: 0 10px;
+  }
+  
+  .social-item .link {
+    color: #fff;
+    text-decoration: none;
+  } */
+  
+  /* Optional: Add a bottom border to separate footer content */
+  .footer .container {
+    border-bottom: 2px solid #444;
+  }
+  
