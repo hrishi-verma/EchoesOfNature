@@ -7,6 +7,7 @@ import { code } from './Code_ISO';
 import ThreatenedSpeciesPie from './ThreatenedSpeciesPie';
 import Dropdown from './Dropdown.jsx';
 import LineGraph from './LineGraph.jsx';
+import BarChart from './BarChart.js';
 
 const ExtinctSpeciesMapD3 = () => {
   const svgRef = useRef(null);
@@ -152,6 +153,10 @@ const ExtinctSpeciesMapD3 = () => {
         </button>
       </div>
       <svg ref={svgRef} width="1100" height="600"></svg>
+      <div>
+        <h1>Bar Chart for Species that could go extinct</h1>
+        <BarChart selectedCountries={selectedCountries} selectedCategory={selectedCategory} />
+      </div>
       <LineGraph selectedCountries={selectedCountries} />
 
       <div
