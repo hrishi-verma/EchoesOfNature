@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 import * as topojson from 'topojson-client';
 import { countries } from './datajson';
+import { info } from './catrgoryInfo';
 import { IsoCode } from './Code_ISO_2.js';
 import { code } from './Code_ISO';
 import ThreatenedSpeciesPie from './ThreatenedSpeciesPie';
@@ -14,6 +15,7 @@ const ExtinctSpeciesMapD3 = () => {
   const [selectedCountries, setSelectedCountries] = useState([]); // State to manage selected countries
   const [selectedCategory, setSelectedCategory] = useState('All Species'); // Managed by the parent component
   const [countryData, setCountryData] = useState({});
+  const [expalnation, setExplantion] = useState(null);
 
   const countryCodeLookup = IsoCode.reduce((obj, country) => {
     obj[country['country-code']] = country.name;
@@ -119,6 +121,11 @@ const ExtinctSpeciesMapD3 = () => {
           });
       })
       .catch((error) => console.error('Error fetching or processing TopoJSON data:', error));
+
+    const temp = info.find(
+      (item) => item.category === selectedCategory
+    )?.description;
+    setExplantion(temp);
   }, [selectedCategory]); // Only re-run this effect when category changes
 
   useEffect(() => {
@@ -132,22 +139,59 @@ const ExtinctSpeciesMapD3 = () => {
 
   return (
     <div>
-      <h1>List of Threatened Species per Country</h1>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
+      {/* Header for the section */}
+      <h2>Threatened Species Across the World: A Country-Wise View</h2>
+
+      {/* Dropdown and Clear button section */}
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: '20px',
+          padding: '10px',
+          backgroundColor: '#f8f9fa', // Light background for better contrast
+          borderRadius: '8px', // Rounded corners
+          boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Subtle shadow for depth
+        }}
+      >
         <Dropdown
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
         />
+        {selectedCategory && (
+          <div
+            style={{
+              maxWidth: '50%', // Limit the width to avoid overlapping with the button
+              marginLeft: '20px', // Add spacing from the dropdown
+              padding: '10px',
+              backgroundColor: '#e9ecef', // Subtle contrast background
+              border: '1px solid #ced4da', // Light border for definition
+              borderRadius: '4px',
+              fontSize: '18px',
+              color: '#495057',
+              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)', // Light shadow for depth
+              textAlign: 'left', // Align text to the left for readability
+            }}
+          >
+            <strong>Category Explanation:</strong>
+            <p style={{ margin: '5px 0 0' }}>{expalnation}</p>
+          </div>
+        )}
         <button
           onClick={clearSelections}
           style={{
-            marginLeft: '10px',
-            padding: '5px 10px',
-            backgroundColor: 'red',
-            color: 'white',
+            padding: '8px 16px', // Larger padding for better click target
+            backgroundColor: '#3e5c76', // Bootstrap-like danger red
+            color: '#fff',
             border: 'none',
+            borderRadius: '4px', // Rounded corners for a modern look
             cursor: 'pointer',
+            fontSize: '18px',
+            transition: 'background-color 0.3s', // Smooth hover effect
           }}
+          onMouseEnter={(e) => (e.target.style.backgroundColor = '#748cab')} // Darker red on hover
+          onMouseLeave={(e) => (e.target.style.backgroundColor = '#3e5c76')}
         >
           Clear All Selections
         </button>

@@ -22,12 +22,48 @@ const Dropdown = ({ selectedCategory, setSelectedCategory }) => {
     };
 
     return (
-        <div>
-            <label htmlFor="categories-dropdown">Choose a category:</label>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+                gap: '10px',
+                marginBottom: '20px',
+                padding: '10px',
+                backgroundColor: '#f8f9fa', // Subtle background
+                borderRadius: '8px', // Rounded corners
+                boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Light shadow
+                width: '100%',
+                maxWidth: '300px', // Constrain width for a cleaner look
+            }}
+        >
+            <label
+                htmlFor="categories-dropdown"
+                style={{
+                    fontSize: '16px',
+                    fontWeight: '500',
+                    color: '#333',
+                }}
+            >
+                Choose a category:
+            </label>
             <select
                 id="categories-dropdown"
                 value={selectedCategory}
                 onChange={handleChange}
+                style={{
+                    width: '100%',
+                    padding: '8px',
+                    fontSize: '14px',
+                    border: '1px solid #ccc',
+                    borderRadius: '4px',
+                    backgroundColor: '#fff',
+                    cursor: 'pointer',
+                    boxShadow: 'inset 0 1px 3px rgba(0, 0, 0, 0.1)',
+                    transition: 'border-color 0.3s',
+                }}
+                onFocus={(e) => (e.target.style.borderColor = '#007bff')} // Highlight on focus
+                onBlur={(e) => (e.target.style.borderColor = '#ccc')}
             >
                 <option value="" disabled>
                     Select a category
@@ -39,11 +75,19 @@ const Dropdown = ({ selectedCategory, setSelectedCategory }) => {
                 ))}
             </select>
             {selectedCategory && (
-                <p>
-                    Selected Category: <strong>{selectedCategory}</strong>
+                <p
+                    style={{
+                        fontSize: '14px',
+                        fontWeight: '400',
+                        color: '#555',
+                        margin: '0',
+                    }}
+                >
+                    Selected Category: <strong style={{ color: '#007bff' }}>{selectedCategory}</strong>
                 </p>
             )}
         </div>
+
     );
 };
 
