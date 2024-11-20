@@ -53,7 +53,7 @@ const ExtinctSpeciesMapD3 = () => {
       .then((data) => {
         const svg = d3.select(svgRef.current);
         const width = 1100;
-        const height = 600;
+        const height = 450;
 
         const projection = d3.geoEqualEarth().scale(160).translate([width / 2, height / 2]);
         const path = d3.geoPath(projection);
@@ -67,6 +67,7 @@ const ExtinctSpeciesMapD3 = () => {
         // Clear previous map elements
         svg.selectAll('path.country').remove();
         svg.selectAll('path.graticule').remove();
+        svg.selectAll('.legend').remove(); // Clear old legend
 
         const graticule = d3.geoGraticule()
           .extent([[-180.1, -90.1], [180.1, 90.1]]);
@@ -96,6 +97,9 @@ const ExtinctSpeciesMapD3 = () => {
           .on('mouseover', function (event, d) {
             const countryName = d.properties.name;
             const speciesCount = countryText[d.id] || '0';
+            d3.select(this)
+              .attr('fill', '#EDED00'); 
+
             d3.select('#map-tooltip')
               .style('opacity', 1)
               .html(`${countryName}: ${speciesCount} species`);
@@ -105,7 +109,14 @@ const ExtinctSpeciesMapD3 = () => {
               .style('left', (event.pageX + 5) + 'px')
               .style('top', (event.pageY - 28) + 'px');
           })
-          .on('mouseout', () => d3.select('#map-tooltip').style('opacity', 0))
+          .on('mouseout', function () {
+            d3.select(this)
+              .attr('fill', d => {
+                const value = countryText[d.id] || 0;
+                return colorScale(value); 
+              });
+            d3.select('#map-tooltip').style('opacity', 0);
+          })
           .on('click', function (event, d) {
             const countryID = d.id;
             const countryName = getCountryNameByCode(countryID);
@@ -119,6 +130,51 @@ const ExtinctSpeciesMapD3 = () => {
               }
             });
           });
+        const legendWidth = 300;
+        const legendHeight = 15;
+        const maxValue = d3.max(Object.values(countryText));
+        const legendMax = maxValue <= 100
+          ? Math.ceil(maxValue / 10) * 10
+          : maxValue <= 1000
+            ? Math.ceil(maxValue / 100) * 100
+            : Math.ceil(maxValue / 1000) * 1000;
+
+        // Append legend group to the SVG
+        const legendGroup = svg.append('g').attr('class', 'legend')
+          .attr('transform', `translate(${50}, ${height})`);
+
+        const defs = svg.append('defs');
+        const gradient = defs.append('linearGradient')
+          .attr('id', 'legend-gradient');
+
+        colorScale.range().forEach((color, i) => {
+          gradient.append('stop')
+            .attr('offset', `${(i / (colorScale.range().length - 1)) * 100}%`)
+            .attr('stop-color', color);
+        });
+
+        legendGroup.append('rect')
+          .attr('width', legendWidth)
+          .attr('height', legendHeight)
+          .style('fill', 'url(#legend-gradient)')
+          .attr('stroke', '#ccc')
+          .attr('stroke-width', 0.5);
+
+        // Create a scale for the legend
+        const legendScale = d3.scaleLinear()
+          .domain([0, legendMax])
+          .range([0, legendWidth]);
+
+
+        legendGroup.append('g')
+          .attr('transform', `translate(0, ${legendHeight})`)
+          .call(d3.axisBottom(legendScale)
+            .ticks(2)
+            .tickValues([0, legendMax])
+            .tickSize(5)
+            .tickFormat(d3.format("d"))
+          )
+          .call(g => g.select('.domain').remove());
       })
       .catch((error) => console.error('Error fetching or processing TopoJSON data:', error));
 
@@ -126,16 +182,16 @@ const ExtinctSpeciesMapD3 = () => {
       (item) => item.category === selectedCategory
     )?.description;
     setExplantion(temp);
-  }, [selectedCategory]); // Only re-run this effect when category changes
+  }, [selectedCategory]);
 
   useEffect(() => {
     const svg = d3.select(svgRef.current);
     svg.selectAll('path.country')
       .attr('stroke-width', (pathData) => {
-        // Apply thicker stroke if the country is selected
+
         return selectedCountries.includes(getCountryNameByCode(pathData.id)) ? 1.5 : 0.5;
       });
-  }, [selectedCountries]); // This will run whenever selectedCountries changes
+  }, [selectedCountries]);
 
   return (
     <div>
@@ -148,7 +204,7 @@ const ExtinctSpeciesMapD3 = () => {
           justifyContent: 'space-between',
           alignItems: 'center',
           marginBottom: '20px',
-          padding: '10px',
+          padding: '10px 30px 10px 30px',
           backgroundColor: '#f7f4ea', // Light background for better contrast
           borderRadius: '8px', // Rounded corners
           boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Subtle shadow for depth
@@ -202,64 +258,18 @@ const ExtinctSpeciesMapD3 = () => {
       <h2>Threatened Species Across the World: A Country-Wise View</h2>
       <div
         style={{
-          position: 'relative', 
-          backgroundColor: '#f7f4ea', 
-          border: '1px solid #ccc', 
-          borderRadius: '8px', 
-          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', 
-          padding: '20px', 
-          margin: '20px auto', 
-          maxWidth: '1100px', 
-        }}
-      >
-        <svg ref={svgRef} width="100%" height="600"></svg> 
-      </div>
-
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'flex-start',
-          padding: '20px',
+          position: 'relative',
           backgroundColor: '#f7f4ea',
+          border: '1px solid #ccc',
           borderRadius: '8px',
           boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-          maxWidth: '100%',
+          padding: '20px',
           margin: '20px auto',
-          gap: '20px',
+          maxWidth: '1100px',
         }}
       >
-        <div style={{ flex: '1', textAlign: 'center' }}>
-          <h2
-            style={{
-              fontSize: '1.2rem',
-              fontWeight: '600',
-              color: '#333',
-              marginBottom: '15px',
-            }}
-          >
-            Line Chart: Species Extinction Rate
-          </h2>
-          <LineGraph selectedCountries={selectedCountries} />
-        </div>
-
-        <div style={{ flex: '1', textAlign: 'center' }}>
-          <h2
-            style={{
-              fontSize: '1.2rem',
-              fontWeight: '600',
-              color: '#333',
-              marginBottom: '15px',
-            }}
-          >
-            Bar Chart: Species at Risk of Extinction
-          </h2>
-          <BarChart selectedCountries={selectedCountries} selectedCategory={selectedCategory} />
-        </div>
+        <svg ref={svgRef} width="100%" height="490"></svg>
       </div>
-
-
-
       <div
         id="map-tooltip"
         style={{
@@ -276,51 +286,95 @@ const ExtinctSpeciesMapD3 = () => {
           opacity: 0
         }}
       ></div>
-
-      <div style={{ padding: '20px', backgroundColor: '#f7f4ea', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
-        <h2 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#333', marginBottom: '20px', textAlign: 'center' }}>
-          Pie Charts for Selected Countries:
-        </h2>
+      {selectedCountries.length > 0 && <>
         <div
           style={{
             display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center', 
-            gap: '20px', 
+            justifyContent: 'space-between',
+            alignItems: 'flex-start',
+            padding: '20px',
+            backgroundColor: '#f7f4ea',
+            borderRadius: '8px',
+            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+            maxWidth: '100%',
+            margin: '20px auto',
+            gap: '20px',
           }}
         >
-          {selectedCountries.map((country, index) => {
-            const countryInfo = countries.find(item => item.Name === country);
-            return (
-              <div
-                key={index}
-                style={{
-                  // width: '200px',
-                  // height: '240px', // Additional height for the label
-                  backgroundColor: '#fff',
-                  borderRadius: '8px',
-                  boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)', 
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  padding: '10px',
-                }}
-              >
-                <div style={{ fontSize: '1rem', fontWeight: '500', color: '#555', textAlign: 'center' }}>
-                  {country}
-                </div>
-                <ThreatenedSpeciesPie
-                  data={countryInfo}
-                  selected={selectedCountries}
-                  label={index === 0}
-                />
-              </div>
-            );
-          })}
-        </div>
-      </div>
+          <div style={{ flex: '1', textAlign: 'center' }}>
+            <h2
+              style={{
+                fontSize: '1.2rem',
+                fontWeight: '600',
+                color: '#333',
+                marginBottom: '15px',
+              }}
+            >
+              Line Chart: Species Extinction Rate
+            </h2>
+            <LineGraph selectedCountries={selectedCountries} />
+          </div>
 
+          <div style={{ flex: '1', textAlign: 'center' }}>
+            <h2
+              style={{
+                fontSize: '1.2rem',
+                fontWeight: '600',
+                color: '#333',
+                marginBottom: '15px',
+              }}
+            >
+              Bar Chart: Species at Risk of Extinction
+            </h2>
+            <BarChart selectedCountries={selectedCountries} selectedCategory={selectedCategory} />
+          </div>
+        </div>
+
+        <div style={{ padding: '20px', backgroundColor: '#f7f4ea', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#333', marginBottom: '20px', textAlign: 'center' }}>
+            Pie Charts for Selected Countries:
+          </h2>
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              gap: '20px',
+            }}
+          >
+            {selectedCountries.map((country, index) => {
+              const countryInfo = countries.find(item => item.Name === country);
+              return (
+                <div
+                  key={index}
+                  style={{
+                    // width: '200px',
+                    // height: '240px', // Additional height for the label
+                    backgroundColor: '#fff',
+                    borderRadius: '8px',
+                    boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    padding: '10px',
+                  }}
+                >
+                  <div style={{ fontSize: '1rem', fontWeight: '500', color: '#555', textAlign: 'center' }}>
+                    {country}
+                  </div>
+                  <ThreatenedSpeciesPie
+                    data={countryInfo}
+                    selected={selectedCountries}
+                    label={index === 0}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </>
+      }
     </div>
   );
 };

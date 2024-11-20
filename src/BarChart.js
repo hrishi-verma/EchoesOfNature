@@ -27,7 +27,7 @@ const BarChart = ({ selectedCountries, selectedCategory }) => {
 
       const svg = d3.select(svgRef.current);
       const tooltip = d3.select(tooltipRef.current);
-      const width = 800;
+      const width = 700;
       const height = 400;
       const margin = { top: 20, right: 30, bottom: 100, left: 50 };
 

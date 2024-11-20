@@ -8,7 +8,7 @@ const Home = () => {
 
             <div className="App">
                 <header className="App-header">
-                    <div style={{ color: 'black' }}>
+                    <div style={{ color: 'black' , width: "100%"}}>
                         <h2>Welcome to the Extinct Species App</h2>
                         <p>
                             Explore the data visualizations of extinct and threatened species around the world.
