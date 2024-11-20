@@ -324,7 +324,7 @@ const ExtinctSpeciesMapD3 = () => {
                 marginBottom: '15px',
               }}
             >
-              Bar Chart: Species at Risk of Extinction
+              Bar Chart: No. of Species that could go Extinct in 2024
             </h2>
             <BarChart selectedCountries={selectedCountries} selectedCategory={selectedCategory} />
           </div>
