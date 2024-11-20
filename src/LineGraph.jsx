@@ -143,7 +143,7 @@ const LineGraph = ({ selectedCountries }) => {
 
     return (
         <div>
-            <h2>Extinction Rate Over Time</h2>
+            {/* <h2>Extinction Rate Over Time</h2> */}
             <svg id="lineGraph" width={svgWidth} height={svgHeight}></svg>
             <div id="tooltip"></div>
         </div>

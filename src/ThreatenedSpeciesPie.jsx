@@ -84,7 +84,7 @@ const PieChart = ({ data, selected, label }) => {
 
     return (
         <div style={{ width: '300px', height: '300px', margin: '20px auto' }}>
-            {label && <h3 style={{ textAlign: 'center' }}>{label}</h3>} {/* Custom Label */}
+            {/* {label && <h3 style={{ textAlign: 'center' }}>{label}</h3>} Custom Label */}
             <canvas ref={chartRef}></canvas>
         </div>
     );

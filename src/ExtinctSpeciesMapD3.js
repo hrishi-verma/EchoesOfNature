@@ -139,8 +139,7 @@ const ExtinctSpeciesMapD3 = () => {
 
   return (
     <div>
-      {/* Header for the section */}
-      <h2>Threatened Species Across the World: A Country-Wise View</h2>
+
 
       {/* Dropdown and Clear button section */}
       <div
@@ -150,7 +149,7 @@ const ExtinctSpeciesMapD3 = () => {
           alignItems: 'center',
           marginBottom: '20px',
           padding: '10px',
-          backgroundColor: '#f8f9fa', // Light background for better contrast
+          backgroundColor: '#f7f4ea', // Light background for better contrast
           borderRadius: '8px', // Rounded corners
           boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Subtle shadow for depth
         }}
@@ -196,12 +195,70 @@ const ExtinctSpeciesMapD3 = () => {
           Clear All Selections
         </button>
       </div>
-      <svg ref={svgRef} width="1100" height="600"></svg>
-      <div>
-        <h1>Bar Chart for Species that could go extinct</h1>
-        <BarChart selectedCountries={selectedCountries} selectedCategory={selectedCategory} />
+      {/* <div>
+        <svg ref={svgRef} width="1100" height="600"></svg>
+      </div> */}
+      {/* Header for the section */}
+      <h2>Threatened Species Across the World: A Country-Wise View</h2>
+      <div
+        style={{
+          position: 'relative', 
+          backgroundColor: '#f7f4ea', 
+          border: '1px solid #ccc', 
+          borderRadius: '8px', 
+          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', 
+          padding: '20px', 
+          margin: '20px auto', 
+          maxWidth: '1100px', 
+        }}
+      >
+        <svg ref={svgRef} width="100%" height="600"></svg> 
       </div>
-      <LineGraph selectedCountries={selectedCountries} />
+
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'flex-start',
+          padding: '20px',
+          backgroundColor: '#f7f4ea',
+          borderRadius: '8px',
+          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+          maxWidth: '100%',
+          margin: '20px auto',
+          gap: '20px',
+        }}
+      >
+        <div style={{ flex: '1', textAlign: 'center' }}>
+          <h2
+            style={{
+              fontSize: '1.2rem',
+              fontWeight: '600',
+              color: '#333',
+              marginBottom: '15px',
+            }}
+          >
+            Line Chart: Species Extinction Rate
+          </h2>
+          <LineGraph selectedCountries={selectedCountries} />
+        </div>
+
+        <div style={{ flex: '1', textAlign: 'center' }}>
+          <h2
+            style={{
+              fontSize: '1.2rem',
+              fontWeight: '600',
+              color: '#333',
+              marginBottom: '15px',
+            }}
+          >
+            Bar Chart: Species at Risk of Extinction
+          </h2>
+          <BarChart selectedCountries={selectedCountries} selectedCategory={selectedCategory} />
+        </div>
+      </div>
+
+
 
       <div
         id="map-tooltip"
@@ -219,22 +276,51 @@ const ExtinctSpeciesMapD3 = () => {
           opacity: 0
         }}
       ></div>
-      <h2>Pie charts for selected countries:</h2>
-      <div style={{ marginTop: '20px', display: 'flex', flexWrap: 'wrap' }}>
-        {selectedCountries.map((country, index) => {
-          const countryInfo = countries.find(item => item.Name === country);
-          return (
-            <div style={{ width: '200px', height: '200px' }} key={index}>
-              <div>{country}</div>
-              <ThreatenedSpeciesPie
-                data={countryInfo}
-                selected={selectedCountries}
-                label={index === 0}
-              />
-            </div>
-          );
-        })}
+
+      <div style={{ padding: '20px', backgroundColor: '#f7f4ea', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#333', marginBottom: '20px', textAlign: 'center' }}>
+          Pie Charts for Selected Countries:
+        </h2>
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center', 
+            gap: '20px', 
+          }}
+        >
+          {selectedCountries.map((country, index) => {
+            const countryInfo = countries.find(item => item.Name === country);
+            return (
+              <div
+                key={index}
+                style={{
+                  // width: '200px',
+                  // height: '240px', // Additional height for the label
+                  backgroundColor: '#fff',
+                  borderRadius: '8px',
+                  boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)', 
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  padding: '10px',
+                }}
+              >
+                <div style={{ fontSize: '1rem', fontWeight: '500', color: '#555', textAlign: 'center' }}>
+                  {country}
+                </div>
+                <ThreatenedSpeciesPie
+                  data={countryInfo}
+                  selected={selectedCountries}
+                  label={index === 0}
+                />
+              </div>
+            );
+          })}
+        </div>
       </div>
+
     </div>
   );
 };
