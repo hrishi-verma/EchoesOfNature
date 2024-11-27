@@ -155,7 +155,7 @@ export const code = {
     "Namibia": "516",
     "Nauru": "520",
     "Nepal": "524",
-    "Netherlands, Kingdom of the": "528",
+    "Netherlands": "528",
     "New Caledonia": "540",
     "New Zealand": "554",
     "Nicaragua": "558",

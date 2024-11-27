@@ -4782,7 +4782,7 @@ export const rate = [
     "2023": 0.90779,
     "2024": 0.90634,
     "GeoAreaCode": 528,
-    "GeoAreaName": "Netherlands (Kingdom of the)"
+    "GeoAreaName": "Netherlands"
   },
   {
     "2000": 0.70301,
@@ -5652,7 +5652,7 @@ export const rate = [
     "2023": 0.97197,
     "2024": 0.97225,
     "GeoAreaCode": 498,
-    "GeoAreaName": "Republic of Moldova"
+    "GeoAreaName": "Moldova"
   },
   {
     "2000": 0.68546,

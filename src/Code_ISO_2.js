@@ -188,7 +188,7 @@ export const IsoCode = [
     "alpha-3": "FSM",
     "country-code": "583",
   },
-  { name: "Moldova, Republic of", "alpha-3": "MDA", "country-code": "498" },
+  { name: "Moldova", "alpha-3": "MDA", "country-code": "498" },
   { name: "Monaco", "alpha-3": "MCO", "country-code": "492" },
   { name: "Mongolia", "alpha-3": "MNG", "country-code": "496" },
   { name: "Montenegro", "alpha-3": "MNE", "country-code": "499" },
@@ -200,7 +200,7 @@ export const IsoCode = [
   { name: "Nauru", "alpha-3": "NRU", "country-code": "520" },
   { name: "Nepal", "alpha-3": "NPL", "country-code": "524" },
   {
-    name: "Netherlands, Kingdom of the",
+    name: "Netherlands",
     "alpha-3": "NLD",
     "country-code": "528",
   },
