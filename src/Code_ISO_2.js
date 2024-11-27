@@ -63,7 +63,7 @@ export const IsoCode = [
   { name: "Comoros", "alpha-3": "COM", "country-code": "174" },
   { name: "Congo", "alpha-3": "COG", "country-code": "178" },
   {
-    name: "Congo, Democratic Republic of the",
+    name: "Congo, Democratic Republic of",
     "alpha-3": "COD",
     "country-code": "180",
   },

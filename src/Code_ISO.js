@@ -50,7 +50,7 @@ export const code = {
     "Colombia": "170",
     "Comoros": "174",
     "Congo": "178",
-    "Congo, The Democratic Republic of the": "180",
+    "Congo, Democratic Republic of": "180",
     "Cook Islands": "184",
     "Costa Rica": "188",
     "Côte d'Ivoire": "384",

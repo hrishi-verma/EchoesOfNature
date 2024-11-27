@@ -1911,7 +1911,7 @@ export const rate = [
     "2023": 0.88293,
     "2024": 0.883,
     "GeoAreaCode": 180,
-    "GeoAreaName": "Democratic Republic of the Congo"
+    "GeoAreaName": "Congo, Democratic Republic of"
   },
   {
     "2000": 0.98027,

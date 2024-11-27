@@ -2563,7 +2563,7 @@ export const countries = [
     "Total": 244
   },
   {
-    "Name": "Congo, The Democratic Republic of the",
+    "Name": "Congo, Democratic Republic of",
     "Mammals": 48,
     "Birds": 40,
     "Reptiles": 18,
