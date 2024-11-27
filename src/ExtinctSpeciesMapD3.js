@@ -17,6 +17,21 @@ const ExtinctSpeciesMapD3 = () => {
   const [countryData, setCountryData] = useState({});
   const [expalnation, setExplantion] = useState(null);
 
+  const categoryColors = {
+    Mammals: '#ffcccb', // Light pink
+    Birds: '#d4edda', // Light green
+    Reptiles: '#c3e6cb', // Mint green
+    Amphibians: '#ffeeba', // Light yellow
+    Fishes: '#bee5eb', // Light blue
+    Molluscs: '#f5c6cb', // Light coral
+    'Other Inverts': '#d1ecf1', // Cyan
+    Plants: '#d8f3dc', // Pale green
+    Fungi: '#f3e5ab', // Wheat
+    Chromists: '#f0e5cf', // Beige
+    'All Species': '#f7f4ea', // Default color
+  };
+
+
   const countryCodeLookup = IsoCode.reduce((obj, country) => {
     obj[country['country-code']] = country.name;
     return obj;
@@ -98,7 +113,8 @@ const ExtinctSpeciesMapD3 = () => {
             const countryName = d.properties.name;
             const speciesCount = countryText[d.id] || '0';
             d3.select(this)
-              .attr('fill', '#EDED00'); 
+              .style('cursor', 'pointer')
+              .attr('fill', '#EDED00');
 
             d3.select('#map-tooltip')
               .style('opacity', 1)
@@ -113,7 +129,7 @@ const ExtinctSpeciesMapD3 = () => {
             d3.select(this)
               .attr('fill', d => {
                 const value = countryText[d.id] || 0;
-                return colorScale(value); 
+                return colorScale(value);
               });
             d3.select('#map-tooltip').style('opacity', 0);
           })
@@ -203,9 +219,10 @@ const ExtinctSpeciesMapD3 = () => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          marginBottom: '20px',
+          margin: '15px',
           padding: '10px 30px 10px 30px',
-          backgroundColor: '#f7f4ea', // Light background for better contrast
+          // backgroundColor: '#f7f4ea', // Light background for better contrast
+          backgroundColor: categoryColors[selectedCategory],
           borderRadius: '8px', // Rounded corners
           boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Subtle shadow for depth
         }}
@@ -324,7 +341,7 @@ const ExtinctSpeciesMapD3 = () => {
                 marginBottom: '15px',
               }}
             >
-              Bar Chart: No. of Species that could go Extinct in 2024
+              Bar Chart: No. of {selectedCategory === 'All Species' ? 'Species' : selectedCategory} that could go Extinct in 2024
             </h2>
             <BarChart selectedCountries={selectedCountries} selectedCategory={selectedCategory} />
           </div>

@@ -28,7 +28,7 @@ const Dropdown = ({ selectedCategory, setSelectedCategory }) => {
                 flexDirection: 'column',
                 alignItems: 'flex-start',
                 gap: '10px',
-                marginBottom: '20px',
+                margin: '15px',
                 padding: '10px',
                 backgroundColor: '#f8f9fa', // Subtle background
                 borderRadius: '8px', // Rounded corners
