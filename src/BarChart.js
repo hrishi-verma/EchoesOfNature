@@ -23,7 +23,7 @@ const BarChart = ({ selectedCountries, selectedCategory }) => {
         return { country: countryName, value: extinctionValue };
       });
 
-      const sortedData = processedData.sort((a, b) => b.value - a.value);
+      const sortedData = processedData.filter((item) => item.country !== null).sort((a, b) => b.value - a.value);
 
       const svg = d3.select(svgRef.current);
       const tooltip = d3.select(tooltipRef.current);

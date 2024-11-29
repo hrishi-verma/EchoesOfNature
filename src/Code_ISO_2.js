@@ -328,7 +328,7 @@ export const IsoCode = [
   { name: "Uzbekistan", "alpha-3": "UZB", "country-code": "860" },
   { name: "Vanuatu", "alpha-3": "VUT", "country-code": "548" },
   {
-    name: "Venezuela, Bolivarian Republic of",
+    name: "Venezuela",
     "alpha-3": "VEN",
     "country-code": "862",
   },

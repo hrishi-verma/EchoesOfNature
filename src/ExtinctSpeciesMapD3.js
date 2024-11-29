@@ -38,7 +38,7 @@ const ExtinctSpeciesMapD3 = () => {
   }, {});
 
   const getCountryNameByCode = (code) => {
-    return countryCodeLookup[code] || "Country not found";
+    return countryCodeLookup[code] || null;
   };
 
   // Function to clear all selected countries
@@ -103,7 +103,7 @@ const ExtinctSpeciesMapD3 = () => {
           .attr('class', 'country')
           .attr('d', path)
           .attr('fill', d => {
-            console.log(countryText, d.id, d, "--------")
+            console.log(countryText, d.id, d.properties.name, d, "--------")
             const value = countryText[d.id] || 0;
             return colorScale(value);
           })
@@ -303,7 +303,7 @@ const ExtinctSpeciesMapD3 = () => {
           opacity: 0
         }}
       ></div>
-      {selectedCountries.length > 0 && <>
+      {selectedCountries.length > 0 && selectedCountries.some((country) => country !== null) && <>
         <div
           style={{
             display: 'flex',
@@ -361,32 +361,34 @@ const ExtinctSpeciesMapD3 = () => {
           >
             {selectedCountries.map((country, index) => {
               const countryInfo = countries.find(item => item.Name === country);
-              return (
-                <div
-                  key={index}
-                  style={{
-                    // width: '200px',
-                    // height: '240px', // Additional height for the label
-                    backgroundColor: '#fff',
-                    borderRadius: '8px',
-                    boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    padding: '10px',
-                  }}
-                >
-                  <div style={{ fontSize: '1rem', fontWeight: '500', color: '#555', textAlign: 'center' }}>
-                    {country}
+              if (countryInfo) {
+                return (
+                  <div
+                    key={index}
+                    style={{
+                      // width: '200px',
+                      // height: '240px', // Additional height for the label
+                      backgroundColor: '#fff',
+                      borderRadius: '8px',
+                      boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      padding: '10px',
+                    }}
+                  >
+                    <div style={{ fontSize: '1rem', fontWeight: '500', color: '#555', textAlign: 'center' }}>
+                      {country}
+                    </div>
+                    <ThreatenedSpeciesPie
+                      data={countryInfo}
+                      selected={selectedCountries}
+                      label={index === 0}
+                    />
                   </div>
-                  <ThreatenedSpeciesPie
-                    data={countryInfo}
-                    selected={selectedCountries}
-                    label={index === 0}
-                  />
-                </div>
-              );
+                );
+              }
             })}
           </div>
         </div>

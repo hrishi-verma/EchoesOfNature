@@ -2129,7 +2129,7 @@ export const countries = [
     "Total": 148
   },
   {
-    "Name": "Venezuela, Bolivarian Republic of",
+    "Name": "Venezuela",
     "Mammals": 37,
     "Birds": 35,
     "Reptiles": 33,

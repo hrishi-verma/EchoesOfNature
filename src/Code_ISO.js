@@ -239,7 +239,7 @@ export const code = {
     "Uruguay": "858",
     "Uzbekistan": "860",
     "Vanuatu": "548",
-    "Venezuela, Bolivarian Republic of": "862",
+    "Venezuela": "862",
     "Viet Nam": "704",
     "Virgin Islands (British)": "092",
     "Virgin Islands (U.S.)": "850",

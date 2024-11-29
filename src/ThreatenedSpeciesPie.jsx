@@ -24,7 +24,7 @@ const PieChart = ({ data, selected, label }) => {
 
         const categoryData = categories.map((category) => {
             // console.log(data, category, data[category], "+++")
-            return data[category]
+            return data?.[category]
         }
 
         )

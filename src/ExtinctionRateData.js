@@ -7537,7 +7537,7 @@ export const rate = [
     "2023": 0.80933,
     "2024": 0.80723,
     "GeoAreaCode": 862,
-    "GeoAreaName": "Venezuela (Bolivarian Republic of)"
+    "GeoAreaName": "Venezuela"
   },
   {
     "2000": 0.79367,
