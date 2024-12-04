@@ -4,25 +4,24 @@
 
 **Extinct Animal Tracker** is a web application that provides visual insights into **threatened species** across the globe, focusing on species that could potentially go extinct in the future. The goal is to raise awareness about endangered species and provide users with a dynamic tool to explore their geographical distribution and conservation status.
 
-The project is built using **React.js** as the core framework, leveraging **Chart.js** and **chartjs-chart-geo** to display geographical data in an interactive, visual format. These libraries allow for seamless rendering of maps and charts, providing users with a clear understanding of the regions affected by species decline.
+The project is built using **React.js** as the core framework, leveraging**D3** && **Chart.js** to display geographical data in an interactive, visual format. These libraries allow for seamless rendering of maps and charts, providing users with a clear understanding of the regions affected by species decline.
 
-Currently, the application features one visualization built with Chart.js. However, we plan to expand the platform by incorporating **D3.js** in future updates, enabling even more complex and interactive visualizations, such as animated transitions, data-driven visuals, and real-time updates.
+There are total 5 visualizations in the Project
 
 ## Features
 
 - **Interactive Map**: Visualize the regions where species have gone extinct using geographical data charts.
-- **Species Data**: Display and analyze data from the IUCN Red List on extinct species.
-- **Customizable Views**: Users can zoom in and out of geographical regions and filter data based on criteria like time 
-  period and species type. (FUTURE)
-- **Responsive Design**: Works seamlessly across various devices and screen sizes.( FUTURE)
+- **Line Chart**: The line chart provides a detailed view of the historical extinction rates of species over time. .
+- **Bar chart**: The bar graph visualizes the extinction rates of species over time, helping users understand the trends in species extinction and the critical need for conservation action. 
+- **pie chart**: The pie chart visualization provides a detailed breakdown of the different types of animal species at risk in a selected country.
+- **Stacked Bar chart**: This graph provides a stacked bar chart visualization of the number of threatened species across various biological categories (e.g., Mammals, Birds, Reptiles) for selected countries.
 
 ## Tech Stack
 
 - **Frontend**: [React.js](https://reactjs.org/) – a popular JavaScript library for building user interfaces.
 - **Data Visualization**: 
-  - [Chart.js](https://www.chartjs.org/) – a simple, flexible JavaScript charting library.
-  - [chartjs-chart-geo](https://github.com/sgratzl/chartjs-chart-geo) – a plugin for Chart.js to plot geographic data.
-  - [D3.js](https://d3js.org/) – a powerful JavaScript library for creating interactive and dynamic visualizations (planned for future updates).
+  - [D3.js](https://d3js.org/) – a powerful JavaScript library for creating interactive and dynamic visualizations (used for 3 visualizations).
+  - [Chart.js](https://www.chartjs.org/) – a simple, flexible JavaScript charting library. (used for 2 visualizayions)
 
 - **Backend**:
   - [Node.js](https://nodejs.org/en/) – JavaScript runtime required to run the application locally and manage dependencies.
@@ -49,7 +48,7 @@ Currently, the application features one visualization built with Chart.js. Howev
    After installation, start the local development server:
 
    ```bash
-   npm start
+   npm run start
    ```
 
    The app should now be running on `http://localhost:3000`.
@@ -63,7 +62,6 @@ Currently, the application features one visualization built with Chart.js. Howev
 
 - **React.js**: Provides the framework for building user interfaces and managing the application's state.
 - **Chart.js**: Used to render interactive charts and graphs.
-- **chartjs-chart-geo**: Adds support for geographical data visualization in Chart.js.
 
 ## Contributing
 
@@ -79,6 +77,6 @@ If you want to view the data have a look at a file by the name datajson.js in sr
 
 ## Acknowledgements
 
-- **IUCN Red List** for providing data on extinct species.
-- **React.js, Chart.js, and chartjs-chart-geo** for the tools to build this project.
+- **IUCN Red List** for providing data on threatened species.
+- **United nations SDG Goal 15.5.1** for providing data on threatened species for their rate of extinction.
 

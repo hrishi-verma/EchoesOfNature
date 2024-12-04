@@ -1339,7 +1339,7 @@ export const countries = [
     "Fishes": 305,
     "Molluscs": 14,
     "Other Inverts": 152,
-    "Plants": "1,632",
+    "Plants": 1632,
     "Fungi": 7,
     "Chromists": 0,
     "Total": 2614
@@ -1983,7 +1983,7 @@ export const countries = [
     "Fishes": 439,
     "Molluscs": 22,
     "Other Inverts": 89,
-    "Plants": "1,362",
+    "Plants": 1362,
     "Fungi": 38,
     "Chromists": 0,
     "Total": 2475
@@ -2025,7 +2025,7 @@ export const countries = [
     "Fishes": 83,
     "Molluscs": 49,
     "Other Inverts": 28,
-    "Plants": "2,061",
+    "Plants": 2061,
     "Fungi": 3,
     "Chromists": 6,
     "Total": 2741
@@ -2249,7 +2249,7 @@ export const countries = [
     "Fishes": 372,
     "Molluscs": 42,
     "Other Inverts": 343,
-    "Plants": "1,371",
+    "Plants": 1371,
     "Fungi": 2,
     "Chromists": 0,
     "Total": 2603
@@ -2277,7 +2277,7 @@ export const countries = [
     "Fishes": 183,
     "Molluscs": 45,
     "Other Inverts": 284,
-    "Plants": "1,449",
+    "Plants": 1449,
     "Fungi": 6,
     "Chromists": 0,
     "Total": 2216
@@ -2333,7 +2333,7 @@ export const countries = [
     "Fishes": 151,
     "Molluscs": 3,
     "Other Inverts": 353,
-    "Plants": "1,072",
+    "Plants": 1072,
     "Fungi": 1,
     "Chromists": 0,
     "Total": 1777
@@ -3075,7 +3075,7 @@ export const countries = [
     "Fishes": 225,
     "Molluscs": 11,
     "Other Inverts": 137,
-    "Plants": "1,048",
+    "Plants": 1048,
     "Fungi": 0,
     "Chromists": 0,
     "Total": 1615

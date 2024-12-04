@@ -25,7 +25,7 @@ function App() {
 
 
   return (
-    <Router>
+    <Router >
       <><Navbar />
         <div >
           <Routes>
@@ -39,3 +39,4 @@ function App() {
 }
 
 export default App;
+// basename="/group-project-extinct-animal-tracker"

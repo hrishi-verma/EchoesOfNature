@@ -9,6 +9,7 @@ import ThreatenedSpeciesPie from './ThreatenedSpeciesPie';
 import Dropdown from './Dropdown.jsx';
 import LineGraph from './LineGraph.jsx';
 import BarChart from './BarChart.js';
+import StackedBarChart from './StackedBar.jsx';
 
 const ExtinctSpeciesMapD3 = () => {
   const svgRef = useRef(null);
@@ -268,11 +269,7 @@ const ExtinctSpeciesMapD3 = () => {
           Clear All Selections
         </button>
       </div>
-      {/* <div>
-        <svg ref={svgRef} width="1100" height="600"></svg>
-      </div> */}
-      {/* Header for the section */}
-      <h2>Threatened Species Across the World: A Country-Wise View</h2>
+      <h2>Threatened Species Across the World: A Country-Wise View for 2024</h2>
       <div
         style={{
           position: 'relative',
@@ -351,6 +348,9 @@ const ExtinctSpeciesMapD3 = () => {
           <h2 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#333', marginBottom: '20px', textAlign: 'center' }}>
             Pie Charts for Selected Countries:
           </h2>
+          <h2 style={{ fontSize: '1rem', fontWeight: '600', color: '#333', marginBottom: '20px', textAlign: 'center' }}>
+            Please hover over the pie chart and click on the categories to see interactions.
+          </h2>
           <div
             style={{
               display: 'flex',
@@ -390,6 +390,43 @@ const ExtinctSpeciesMapD3 = () => {
                 );
               }
             })}
+          </div>
+        </div>
+
+        <div style={{ padding: '20px', backgroundColor: '#f7f4ea', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#333', marginBottom: '20px', textAlign: 'center' }}>
+            Stacked Bar Charts for Selected Countries:
+          </h2>
+          <h2 style={{ fontSize: '1rem', fontWeight: '600', color: '#333', marginBottom: '20px', textAlign: 'center' }}>
+            Please hover over the bar chart and click on the categories to see interactions.
+          </h2>
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              gap: '20px',
+            }}
+          >
+            <div
+              style={{
+                backgroundColor: '#fff',
+                borderRadius: '8px',
+                boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                padding: '10px',
+                width: '90%',
+                height: '90vh'
+              }}
+            >
+
+              <StackedBarChart
+                selectedCountryNames={selectedCountries}
+              />
+            </div>
           </div>
         </div>
       </>

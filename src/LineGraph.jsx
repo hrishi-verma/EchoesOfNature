@@ -100,7 +100,7 @@ const LineGraph = ({ selectedCountries }) => {
 
                 svg.on('mousemove', function (event) {
                     const [x] = d3.pointer(event);
-                    const year = xScale.invert(x);
+                    const year = xScale.invert(x - margin.left);
                     if (year) {
                         const yearStr = Math.round(year).toString();
                         const yearData = filteredData.map(item => {

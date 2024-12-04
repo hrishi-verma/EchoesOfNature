@@ -88,8 +88,9 @@ const BarChart = ({ selectedCountries, selectedCategory }) => {
         .attr("y", (d) => yScale(d.value))
         .attr("width", xScale.bandwidth())
         .attr("height", (d) => height - margin.bottom - yScale(d.value))
-        .attr("fill", "#69b3a2")
+        .attr("fill", "#aa6f73")
         .on("mouseover", (event, d) => {
+          d3.select(event.currentTarget).attr("fill", "#66545e");
           tooltip
             .style("visibility", "visible")
             .style("left", `${event.pageX + 10}px`)
@@ -101,7 +102,8 @@ const BarChart = ({ selectedCountries, selectedCategory }) => {
             .style("left", `${event.pageX + 10}px`)
             .style("top", `${event.pageY - 20}px`);
         })
-        .on("mouseout", () => {
+        .on("mouseout", (event) => {
+          d3.select(event.currentTarget).attr("fill", "#aa6f73");
           tooltip.style("visibility", "hidden");
         });
     }
