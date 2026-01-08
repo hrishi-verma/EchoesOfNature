@@ -9,31 +9,15 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 function App() {
 
-  let Component
-  switch (window.location.pathname) {
-    case '/Home':
-      Component = <Home />
-      break
-    case "/Pricing":
-      Component = <Pricing />
-      break
-    case "/About":
-      Component = <About />
-      break
-
-  }
-
-
   return (
-    <Router >
-      <><Navbar />
-        <div >
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-          </Routes>
-        </div>
-      </>
+    <Router basename={process.env.PUBLIC_URL}>
+      <Navbar />
+      <div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
     </Router>
   );
 }
